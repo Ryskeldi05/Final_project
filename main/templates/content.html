@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'header.html' %}
+
+{% for content in content %}
+
+<section id="blog" class="blog-area pt-170 pb-140">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-lg-7">
+					<div class="section-title">
+						<h2 class="wow fadeInUp" data-wow-delay=".2s">Course description</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-4 col-lg-4 col-md-6">
+					<div class="single-blog">
+						<div class="blog-img">
+							<a href="javascript:void(0)" class="d-block">
+								<img src="{% if content.image %}{{content.image.url}} {% endif %}" alt="">
+							</a>
+						</div>
+						<div class="blog-content">
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-md-6">
+					<div class="single-blog">
+						<div class="blog-img">
+							<p>{{content.description}}</p>
+							<a href="{% url 'courses' %}" class="main-btn wow fadeInUp" data-wow-delay=".6s">Content</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endfor %}
+{% endblock %}
