@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'header.html' %}
+<section id="courses" class="course-area pt-140 pb-170">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-lg-7 col-md-10 mx-auto">
+					<div class="section-title text-center mb-50">
+						<h2 class="mb-15 wow fadeInUp" data-wow-delay=".2s">Modules</h2>
+					</div>
+				</div>
+			</div>
+
+
+
+<se class="row mb-30">
+				<div class="col-xl-4 col-lg-4 col-md-4">
+					<div class="single-course wow fadeInUp" data-wow-delay=".2s">
+						<div class="course-img">
+
+							<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+							  {% for module in modules %}
+								<a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home-{{module.id}}" role="tab" aria-controls="v-pills-home" aria-selected="false">{{module.name}}</a>
+								{% endfor %}
+							</div>
+
+
+							<div class="tab-content" id="v-pills-tabContent">
+								{% for module in modules %}
+							  <div class="tab-pane fade show active" id="v-pills-home-{{module.id}}" role="tabpanel" aria-labelledby="v-pills-home-tab">{{module.description}}</div>
+								{% endfor %}
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+</se>
+
+
+
+{% endblock %}

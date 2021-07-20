@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Courses, Modules, Lesson, Content_Type, Content
+from .models import Courses, Modules, Content_Type, Content, Mentors
 
 
 
@@ -10,23 +10,20 @@ def courses (request):
     courses = Courses.objects.all()
     return render(request, 'courses.html', {'courses': courses})
 
-def modules (request):
-    modules = Modules.objects.all()
+def modules (request,course_id):
+    modules = Modules.objects.filter(course_id__id=course_id)
     return render(request, 'modules.html', {'modules': modules})
-
-def lesson (request):
-    lesson = Lesson.objects.all()
-    return render(request, 'lesson.html', {'lesson': lesson})
 
 def content_type (request):
     content_type = Content_Type.objects.all()
     return render(request, 'content_type.html', {'content_type': content_type})
 
-def content (request):
-    content = Content.objects.all()
+def content (request, course_id):
+    content = Courses.objects.filter(id=course_id)
     return render(request, 'content.html', {'content': content})
 
 def mentors (request):
+    mentors = Mentors.objects.all()
     return render(request, 'mentors.html', {'mentors': mentors})
 
 def blog (request):

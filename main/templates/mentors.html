@@ -6,18 +6,35 @@
 {% include 'header.html' %}
 
 <!--====== TEAM PART START ======-->
-	<section id="mentors" class="team-area pt-170 pb-140">
-					<div class="welcome-content text-center">
-						<div class="section-title">
-							<h2 class="mb-35 wow fadeInUp" data-wow-delay=".2s">You are using free lite version of Learn</h2>
+<section id="courses" class="course-area pt-140 pb-170">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-lg-7 col-md-10 mx-auto">
+					<div class="section-title text-center mb-50">
+						<h2 class="mb-15 wow fadeInUp" data-wow-delay=".2s"> Mentors </h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% for mentor in mentors %}
+			<se class="row mb-30">
+				<div class="col-xl-4 col-lg-4 col-md-4">
+					<div class="single-course wow fadeInUp" data-wow-delay=".2s">
+						<div class="course-img">
+								<img src="{% if mentor.image %}{{mentor.image.url}} {% endif %}" alt="">
 						</div>
-						<div class="content">
-							<p class="mb-35 wow fadeInUp" data-wow-delay=".4s">Please purchase full version of the template to get all pages, sections, features and permission to remove footer credits.</p>
-
-							<a href="https://rebrand.ly/learn-ud" rel="nofollow" class="main-btn wow fadeInUp" data-wow-delay=".5s">Purchase Now <i class="lni lni-arrow-right"></i></a>
+						<div class="course-info">
+							<h4>{{mentor.full_name}}</h4>
+							<a>{{mentor.description}}</a>
+							<div class="course-meta">
+							</div>
 						</div>
 					</div>
-	</section>
+				</div>
+			</se>
+				{% endfor %}
 	<!--====== TEAM PART ENDS ======-->
+</section>
+
 
 {% endblock %}

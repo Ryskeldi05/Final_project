@@ -18,15 +18,15 @@
 			</div>
 			{% for course in courses %}
 			<se class="row mb-30">
-				<div class="col-xl-4 col-lg-4 col-md-6">
+				<div class="col-xl-4 col-lg-4 col-md-4">
 					<div class="single-course wow fadeInUp" data-wow-delay=".2s">
 						<div class="course-img">
-							<a href="{% url 'content' %}">
+							<a href="{% url 'modules' course.id %}">
 								<img src="{% if course.image %}{{course.image.url}} {% endif %}" alt="">
 							</a>
 						</div>
 						<div class="course-info">
-							<h4><a href="{% url 'content' %}">{{course.name}}</a></h4>
+							<h4><a href="{% url 'modules' course.id %}">{{course.name}}</a></h4>
 							<div class="course-meta">
 								<div class="meta-item">
 									<i class="lni lni-user"></i>
