@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Courses, Modules, Content_Type, Content, Mentors
+import random
+from .models import Courses, Modules, Content_Type, Content, Mentors, Blog
 
 
 
@@ -18,8 +19,8 @@ def content_type (request):
     content_type = Content_Type.objects.all()
     return render(request, 'content_type.html', {'content_type': content_type})
 
-def content (request, course_id):
-    content = Courses.objects.filter(id=course_id)
+def content (request, module_id):
+    content = Content.objects.filter(module_id=module_id)
     return render(request, 'content.html', {'content': content})
 
 def mentors (request):
@@ -27,6 +28,8 @@ def mentors (request):
     return render(request, 'mentors.html', {'mentors': mentors})
 
 def blog (request):
+    blog_random = Blog.objects.all()
+    blog = random.choices(blog_random)
     return render(request, 'blog.html', {'blog': blog})
 
 def contact (request):

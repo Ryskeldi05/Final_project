@@ -11,28 +11,32 @@
 			<div class="row">
 				<div class="col-xl-6 col-lg-7 col-md-10 mx-auto">
 					<div class="section-title text-center mb-50">
+
 						<h2 class="mb-15 wow fadeInUp" data-wow-delay=".2s"> Mentors </h2>
 					</div>
 				</div>
 			</div>
 		</div>
-	{% for mentor in mentors %}
-			<se class="row mb-30">
-				<div class="col-xl-4 col-lg-4 col-md-4">
-					<div class="single-course wow fadeInUp" data-wow-delay=".2s">
-						<div class="course-img">
-								<img src="{% if mentor.image %}{{mentor.image.url}} {% endif %}" alt="">
-						</div>
-						<div class="course-info">
-							<h4>{{mentor.full_name}}</h4>
-							<a>{{mentor.description}}</a>
-							<div class="course-meta">
-							</div>
-						</div>
-					</div>
+
+	<div class="container">
+
+
+	<div class="container">
+		<div class="row">
+			{% for mentor in mentors %}
+			<div class="col-xl-4 col-md-4">
+				<img src="{% if mentor.image %}{{mentor.image.url}} {% endif %}" alt="">
+				<div class="course-info">
+					<h4>{{mentor.full_name}}</h4>
+					<a>{{mentor.description}}</a>
+					<div class="course-meta">
 				</div>
-			</se>
+
+				</div>
+				</div>
 				{% endfor %}
+		</div>
+	</div>
 	<!--====== TEAM PART ENDS ======-->
 </section>
 

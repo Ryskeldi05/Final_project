@@ -12,52 +12,29 @@
 				<div class="col-xl-6 col-lg-7">
 					<div class="section-title">
 						<h2 class="wow fadeInUp" data-wow-delay=".2s">From The Blog</h2>
-						<p class="wow fadeInUp" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt utlabo</p>
+						<p class="wow fadeInUp" data-wow-delay=".4s">Gain new skills everyday!</p>
 					</div>
 				</div>
 			</div>
+			{% for blog in blog %}
 			<div class="row">
-				<div class="col-xl-4 col-lg-4 col-md-6">
+				<div class="col-xl-8 col-lg-8 col-md-8">
 					<div class="single-blog">
 						<div class="blog-img">
+							<div class="section-title text-center mb-50">
 							<a href="javascript:void(0)" class="d-block">
-								<img src="{% static 'main/images/blog/blog-1.jpg' %}" alt="">
+								<img src="{% if blog.image %}{{blog.image.url}} {% endif %}" alt="">
 							</a>
+							</div>
 						</div>
 						<div class="blog-content">
-							<h4><a href="{% static 'javascript:void(0)' %}">Modern website design
-							tools</a></h4>
-							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<div class="single-blog">
-						<div class="blog-img">
-							<a href="{% static 'javascript:void(0)' %}" class="d-block">
-								<img src="{% static 'main/images/blog/blog-2.jpg' %}" alt="">
-							</a>
-						</div>
-						<div class="blog-content">
-							<h4><a href="{% static 'javascript:void(0)' %}">How To install SSL</a></h4>
-							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<div class="single-blog">
-						<div class="blog-img">
-							<a href="{% static 'javascript:void(0)' %}" class="d-block">
-								<img src="{% static 'main/images/blog/blog-3.jpg' %}" alt="">
-							</a>
-						</div>
-						<div class="blog-content">
-							<h4><a href="{% static 'javascript:void(0)' %}">Getting started with Figma</a></h4>
-							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
+							<h4><a href="{% static 'javascript:void(0)' %}">{{blog.name}}</a></h4>
+							<p>{{blog.text}}</p>
 						</div>
 					</div>
 				</div>
 			</div>
+			{% endfor %}
 		</div>
 	</section>
 	<!--====== BLOG PART ENDS ======-->
